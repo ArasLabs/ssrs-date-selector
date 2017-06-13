@@ -1,0 +1,13 @@
+﻿<AML>
+ <Item type="Report" id="67BDE6425479414181B4519DB0D164E7" action="add">
+  <location>client</location>
+  <method keyed_name="Report_date_select" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Report_date_select</name>
+   </Item>
+  </method>
+  <name>SSRS Date Selector</name>
+  <target>none</target>
+  <type>generic</type>
+ </Item>
+</AML>

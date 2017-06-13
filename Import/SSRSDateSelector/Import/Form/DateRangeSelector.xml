@@ -1,0 +1,129 @@
+﻿<AML>
+ <Item type="Form" id="A0DC688E91834EC98E013A8046F60692" action="add">
+  <name>DateRangeSelector</name>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <Relationships>
+   <Item type="Body" id="ED624E97FC104119A4026C60CC530B51" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="DateRangeSelector" type="Form">A0DC688E91834EC98E013A8046F60692</source_id>
+    <Relationships>
+     <Item type="Field" id="00AA0032F3FB414B89C6F745093F5492" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>date</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">From Date</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>from_date</name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
+      <tab_stop>0</tab_stop>
+      <x>90</x>
+      <y>110</y>
+     </Item>
+     <Item type="Field" id="673354456A8A42C99F086AD3AE3EC349" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>html</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <html_code><![CDATA[<font size="6">Date Range Selector</font>
+<script>
+document.isEditMode=true;
+var myInnovator = dialogArguments.innovator;
+setTimeout('startup();',100);
+
+function startup() 
+{
+var displayDate =  new Date();
+document.forms[0].to_date.value=fixDate(displayDate);
+document.forms[0].from_date.value=fixDate(displayDate);
+}
+function fixDate(inDate) 
+{
+ 	var Day = inDate.getDate();
+	var DayStr = (Day < 10) ? '0' + Day : Day;
+	var Month = inDate.getMonth();
+	Month++;
+	var MonthStr = (Month < 10) ? '0' + Month : Month;
+                     var cntx = myInnovator.getI18NSessionContext();
+                     return cntx.ConvertFromNeutral( inDate.getFullYear() + "-" + MonthStr + "-" + DayStr, 'date', 'short_date');
+}
+
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>html0</name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
+      <tab_stop>1</tab_stop>
+      <x>110</x>
+      <y>50</y>
+     </Item>
+     <Item type="Field" id="DE895D5350794DF1B49F632EA5437B9C" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Run Report</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>run_report</name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
+      <tab_stop>1</tab_stop>
+      <x>210</x>
+      <y>170</y>
+      <Relationships>
+       <Item type="Field Event" id="9C89A8F8284943A3992EBE236BA728AB" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="run_report_button_click" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>run_report_button_click</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="run_report" type="Field">DE895D5350794DF1B49F632EA5437B9C</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="3F99C9F73E72415F82ABDCAD6C5D4609" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>date</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">To Date</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>to_date</name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
+      <tab_stop>0</tab_stop>
+      <x>290</x>
+      <y>110</y>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
