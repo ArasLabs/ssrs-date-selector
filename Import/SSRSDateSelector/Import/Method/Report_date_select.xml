@@ -29,10 +29,10 @@ var callback = function(res)
         var url   = aras.getServerBaseURL() + "RSGateway.aspx?irs:Report=" + reportName;      
         
         //Date Variables in this example is fromDate and toDate
-        url += "&amp;np:fromDate=" + fromDate; 
-        url += "&amp;np:toDate=" + toDate;
-        url += "&rs:Format=EXCEL";
-
+        url += "&np:fromDate=" + fromDate; 
+        url += "&np:toDate=" + toDate;
+        //url += "&rs:Format=EXCEL"; //output to Excel
+        url += "&rs:Format=PDF"; //output to PDF
         var w = window.open(url);
     }
 };
