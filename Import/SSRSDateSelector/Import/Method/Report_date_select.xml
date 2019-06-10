@@ -1,36 +1,46 @@
-﻿<AML>
+<AML>
  <Item type="Method" id="53D0E6842DC54DE2BD7F3040F49D793E" action="add">
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
-  <method_code><![CDATA[var param = new Object();
-param.title  = "Date range selector for Reporting Services Report";
-param.formId = "A0DC688E91834EC98E013A8046F60692"; //Date Range Selector Form
-params.isEditMode = "1";
-param.aras   = top.aras;
-param.innovator = this.getInnovator(); 
+  <method_code><![CDATA[var topWnd = aras.getMostTopWindowWithAras(window);
+topWnd = topWnd.main || topWnd;
 
+// get form params
+var params = {
+    title: "Date range selector for Reporting Services Report", 
+    formId: "A0DC688E91834EC98E013A8046F60692", //Date Range Selector Form
+    isEditMode: '1',
+    aras: aras,
+    innovator: this.getInnovator(),
+    dialogHeight: 300,               // set height int
+    dialogWidth: 450,                // set width int
+    content: 'ShowFormAsADialog.html'
+};
 
-var res = showModalDialog("ShowFormAsADialog.html", param,
-        "dialogHeight:300px; dialogWidth:450px; " +
-        "status:0; help:0; resizable:0; scroll:0;");
-// debugger;
-if (res)
-{       
-var fromDate = top.aras.convertToNeutral(res["from_date"], 'date', "short_date");
-fromDate= fromDate.substring(0,fromDate.indexOf("T"));
-var toDate = top.aras.convertToNeutral(res["to_date"], 'date', "short_date");
-toDate= toDate.substring(0,toDate.indexOf("T"));
+var callback = function(res) 
+{
+    if (res)
+    {       
+        var fromDate = top.aras.convertToNeutral(res.from_date, 'date', "short_date");
+        fromDate= fromDate.substring(0,fromDate.indexOf("T"));
+        var toDate = top.aras.convertToNeutral(res.to_date, 'date', "short_date");
+        toDate= toDate.substring(0,toDate.indexOf("T"));
+        
+        var reportName = "TestReport";  //Your Report Name Here
+        var url   = aras.getServerBaseURL() + "RSGateway.aspx?irs:Report=" + reportName;      
+        
+        //Date Variables in this example is fromDate and toDate
+        url += "&amp;np:fromDate=" + fromDate; 
+        url += "&amp;np:toDate=" + toDate;
+        url += "&rs:Format=EXCEL";
 
-var reportName = "TestReport";  //Your Report Name Here
-var url   = top.aras.getServerBaseURL() + "RSGateway.aspx?irs:Report=" + reportName;      
+        var w = window.open(url);
+    }
+};
 
-//Date Variables in this example is fromDate and toDate
-url += "&amp;np:fromDate=" + fromDate; 
-url += "&amp;np:toDate=" + toDate;
-//url += "&amp;rs:Format=Excel";
-
-var w = window.open(url, "TestReport", "width=800,height=600,status=yes,resizable=yes,toolbar=no,menubar=no,scrollbars=yes");
-}
-return "<html></html>";]]></method_code>
+// call form in dialog
+topWnd.ArasModules.Dialog.show("iframe", params).promise.then(callback);
+var Pro = new Promise(function(result, reject){});
+return Pro;]]></method_code>
   <method_type>JavaScript</method_type>
   <name>Report_date_select</name>
  </Item>

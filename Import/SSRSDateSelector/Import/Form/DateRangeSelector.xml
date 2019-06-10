@@ -1,7 +1,10 @@
 ﻿<AML>
  <Item type="Form" id="A0DC688E91834EC98E013A8046F60692" action="add">
-  <name>DateRangeSelector</name>
+  <category_form>0</category_form>
+  <height>234</height>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>DateRangeSelector</name>
   <Relationships>
    <Item type="Body" id="ED624E97FC104119A4026C60CC530B51" action="add">
     <sort_order>128</sort_order>
@@ -20,12 +23,12 @@
       <label xml:lang="en">From Date</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
-      <name>from_date</name>
       <sort_order>128</sort_order>
       <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
       <tab_stop>0</tab_stop>
-      <x>90</x>
+      <x>70</x>
       <y>110</y>
+      <name>from_date</name>
      </Item>
      <Item type="Field" id="673354456A8A42C99F086AD3AE3EC349" action="add">
       <bg_color>#FFFFFF</bg_color>
@@ -63,15 +66,15 @@ function fixDate(inDate)
       <is_visible>1</is_visible>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
-      <name>html0</name>
       <sort_order>512</sort_order>
       <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
       <tab_stop>1</tab_stop>
-      <x>110</x>
+      <x>90</x>
       <y>50</y>
+      <name>html0</name>
      </Item>
      <Item type="Field" id="DE895D5350794DF1B49F632EA5437B9C" action="add">
-      <bg_color>#FFFFFF</bg_color>
+      <bg_color>#4169e1</bg_color>
       <border_width>0</border_width>
       <field_type>button</field_type>
       <font_color>#000000</font_color>
@@ -83,12 +86,12 @@ function fixDate(inDate)
       <label xml:lang="en">Run Report</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
-      <name>run_report</name>
       <sort_order>384</sort_order>
       <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
       <tab_stop>1</tab_stop>
-      <x>210</x>
+      <x>190</x>
       <y>170</y>
+      <name>run_report</name>
       <Relationships>
        <Item type="Field Event" id="9C89A8F8284943A3992EBE236BA728AB" action="add">
         <field_event>onclick</field_event>
@@ -115,12 +118,12 @@ function fixDate(inDate)
       <label xml:lang="en">To Date</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
-      <name>to_date</name>
       <sort_order>256</sort_order>
       <source_id keyed_name="ED624E97FC104119A4026C60CC530B51" type="Body">ED624E97FC104119A4026C60CC530B51</source_id>
       <tab_stop>0</tab_stop>
-      <x>290</x>
+      <x>270</x>
       <y>110</y>
+      <name>to_date</name>
      </Item>
     </Relationships>
    </Item>
